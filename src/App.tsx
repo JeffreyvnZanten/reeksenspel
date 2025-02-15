@@ -1,34 +1,40 @@
 import { useState } from 'react';
 import { SequenceDisplay } from './components/SequenceDisplay';
-import { generateNumberSequence } from './utils';
 import { SelectionMenu } from './components/SelectionMenu';
 import { InputScreen } from './components/InputScreen';
 import './App.css';
+import { ScoreDisplay } from './components/ScoreDisplay';
 
 export enum GameState {
   SelectionMenu,
   SequenceDisplay,
-  EnterInput
+  InputScreen,
+  ScoreDisplay
 }
 
-export const App = () => {
+export const App = <T,>() => {
   const [gameState, setGameState] = useState(GameState.SelectionMenu);
+  const [sequence, setSequence] = useState<T[] | null>(null);
 
   const screens = [
     () => (
       <SelectionMenu
-        handleOnClick={() => setGameState(GameState.SequenceDisplay)}
+        setGameState={() => setGameState(GameState.SequenceDisplay)}
+        setSequence={setSequence}
       />
     ),
     () => (
       <SequenceDisplay
-        sequence={generateNumberSequence(2, 3)}
-        handleOnComplete={() => setGameState(GameState.EnterInput)}
+        sequence={sequence as T[]}
+        handleOnComplete={() => setGameState(GameState.InputScreen)}
       />
     ),
     () => (
       <InputScreen handleOnSubmit={(input) => console.log(input)} />
     ),
+    () => (
+      <ScoreDisplay />
+    )
   ];
 
   return (
