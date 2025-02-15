@@ -1,5 +1,4 @@
 import { generateLetterSequence, generateNumberSequence } from "../utils";
-import { CustomSettings } from "./CustomSettings";
 
 export type AllowedSequenceItem = number | string | HTMLImageElement;
 
