@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-type SequenceProps<T> = {
+type SequenceDisplayProps<T> = {
   sequence: T[];
   handleOnComplete: () => void;
 };
 
-export const SequenceDisplay = <T,>({ sequence, handleOnComplete }: SequenceProps<T>) => {
+export const SequenceDisplay = <T,>({ sequence, handleOnComplete }: SequenceDisplayProps<T>) => {
   const [itemDisplay, setItemDisplay] = useState<T | null>(null);
 
   const delay = (ms: number) =>
@@ -18,7 +18,7 @@ export const SequenceDisplay = <T,>({ sequence, handleOnComplete }: SequenceProp
       for (const item of sequence) {
         if (!isMounted) break;
         setItemDisplay(item);
-        await delay(2000);
+        await delay(1400);
       }
       if (isMounted) {
         handleOnComplete();
@@ -31,5 +31,5 @@ export const SequenceDisplay = <T,>({ sequence, handleOnComplete }: SequenceProp
       isMounted = false;
     };
   }, [sequence, handleOnComplete]);
-  return <div>{JSON.stringify(itemDisplay)}</div>
+  return <div className="text-4xl">{JSON.stringify(itemDisplay)}</div>
 };

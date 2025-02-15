@@ -1,11 +1,1 @@
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centers vertically */
-  align-items: center;    /* Centers horizontally */
-}
+@import "tailwindcss";
