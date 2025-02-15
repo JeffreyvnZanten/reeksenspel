@@ -5,7 +5,7 @@ type InputScreenProps<T> = {
     sequence: T[];
 }
 
-export const InputScreen = <T,>({handleOnSubmit, sequence}: InputScreenProps<T>) => {
+export const InputScreen = <T,>({handleOnSubmit}: InputScreenProps<T>) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
     function isCorrectSequenceType(input: string) {
