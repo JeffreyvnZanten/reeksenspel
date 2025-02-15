@@ -20,6 +20,7 @@ export const App = <T,>() => {
     () => (
       <SelectionMenu
         setGameState={() => setGameState(GameState.SequenceDisplay)}
+        sequence={sequence as T[]}
         setSequence={setSequence}
       />
     ),
@@ -30,7 +31,10 @@ export const App = <T,>() => {
       />
     ),
     () => (
-      <InputScreen handleOnSubmit={(input) => console.log(input)} />
+      <InputScreen 
+        handleOnSubmit={() => setGameState(GameState.ScoreDisplay)} 
+        sequence={sequence as T[]}
+      />
     ),
     () => (
       <ScoreDisplay />

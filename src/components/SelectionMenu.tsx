@@ -2,14 +2,13 @@ import { generateLetterSequence, generateNumberSequence } from "../utils";
 
 export type AllowedSequenceItem = number | string | HTMLImageElement;
 
-
-
 export type SelectionMenuProps<T> = {
   setGameState: () => void;
+  sequence: T[];
   setSequence: React.Dispatch<React.SetStateAction<T[] | null>>;
 };
 
-export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProps<T>) => {
+export const SelectionMenu = <T,>({setGameState, sequence, setSequence}: SelectionMenuProps<T>) => {
 
   function handleSequenceChange(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
@@ -24,6 +23,11 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
       default:
         break;
     }
+  }
+
+  function handleStartGame() {
+    if(sequence !== null) setGameState();
+    else alert("Selecteer een reeks");
   }
 
   return (
@@ -50,7 +54,7 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
         </fieldset>
         <button 
             className="bg-red-500 hover:bg-red-700 text-xl text-white font-bold py-1 px-6 rounded-lg"
-            onClick={() => setGameState()}
+            onClick={() => handleStartGame()}
         >Start
         </button>
     </div>
