@@ -7,11 +7,6 @@ export type SelectionMenuProps<T> = {
   setSequence: React.Dispatch<React.SetStateAction<T[] | null>>;
 };
 
-type Sequence<T> = {
-  data: T[];
-  type: string;
-}
-
 export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProps<T>) => {
   const [sequenceType, setSequenceType] = useState<string | null>(null);
 
