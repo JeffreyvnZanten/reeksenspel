@@ -7,6 +7,7 @@ export function generateNumberSequence(digits: number, repeatAmount: number): nu
 
 export function generateLetterSequence(repeatAmount: number): string[] {
   const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  
   return Array.from({ length: repeatAmount }, () => alphabet[Math.floor(Math.random() * alphabet.length)]);
 }
   

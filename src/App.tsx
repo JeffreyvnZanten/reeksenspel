@@ -15,6 +15,7 @@ export enum GameState {
 export const App = <T,>() => {
   const [gameState, setGameState] = useState(GameState.SelectionMenu);
   const [sequence, setSequence] = useState<T[] | null>(null);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   const screens = [
     () => (
@@ -32,16 +33,18 @@ export const App = <T,>() => {
     () => (
       <InputScreen 
         handleOnSubmit={() => setGameState(GameState.ScoreDisplay)} 
+        handleReset={() => setGameState(GameState.SequenceDisplay)}
+        setIsSuccess={setIsSuccess}
         sequence={sequence as T[]}
       />
     ),
     () => (
-      <ScoreDisplay setGameState={() => setGameState(GameState.SelectionMenu)}/>
+      <ScoreDisplay isSuccess={isSuccess} setGameState={() => setGameState(GameState.SelectionMenu)}/>
     )
   ];
 
   return (
-    <div className="mx-auto w-sm border-1 p-10 bg-gray-100">
+    <div className="mx-auto w-sm border-1 p-10 bg-orange-600 mt-20 border-white">
       {screens[gameState]()}
     </div>
   );

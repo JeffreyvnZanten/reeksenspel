@@ -2,12 +2,15 @@ import { useState } from "react";
 import { generateLetterSequence, generateNumberSequence } from "../utils";
 import { ClickableIcon } from "./ClickableIcon";
 
-export type AllowedSequenceItem = number | string | HTMLImageElement;
-
 export type SelectionMenuProps<T> = {
   setGameState: () => void;
   setSequence: React.Dispatch<React.SetStateAction<T[] | null>>;
 };
+
+type Sequence<T> = {
+  data: T[];
+  type: string;
+}
 
 export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProps<T>) => {
   const [sequenceType, setSequenceType] = useState<string | null>(null);
@@ -26,9 +29,9 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
   }
 
   return (
-    <div className="text-center">
-        <h1 className="text-4xl p-2">Kies een reeks</h1>
-        <div className="flex space-x-4 justify-center p-2">
+    <div className="text-center flex gap-4 flex-col">
+        <h1 className="text-4xl p-1 text-white">Kies een reeks</h1>
+        <div className="flex space-x-4 justify-center">
           <ClickableIcon
             name="getallenreeks"
             onClick={() => setSequenceType("getallenreeks")}
@@ -41,7 +44,7 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
           />
         </div>
         <button 
-            className="bg-red-500 hover:bg-red-700 text-xl text-white font-bold py-1 px-6 rounded-lg"
+            className="bg-black border-2 hover:bg-slate-900 text-xl text-white font-bold py-2 px-8 rounded-lg"
             onClick={() => handleStartGame()}
         >Start
         </button>
