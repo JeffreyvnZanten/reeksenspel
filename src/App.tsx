@@ -44,7 +44,7 @@ export const App = <T,>() => {
   ];
 
   return (
-    <div className="mx-auto w-sm border-1 p-10 bg-orange-600 mt-20 border-white">
+    <div className="mx-auto w-sm border-1 p-2 bg-orange-600 mt-20 border-white">
       {screens[gameState]()}
     </div>
   );

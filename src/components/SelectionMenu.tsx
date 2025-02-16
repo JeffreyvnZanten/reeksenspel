@@ -14,7 +14,7 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
     if (sequenceType === "getallenreeks") {
       setSequence(generateNumberSequence(2, 3) as T[]);
     } else if (sequenceType === "letterreeks") {
-      setSequence(generateLetterSequence(2) as T[]);
+      setSequence(generateLetterSequence(2, 3) as T[]);
     } else {
       alert("Kies een reeks");
       return;
@@ -24,9 +24,9 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
   }
 
   return (
-    <div className="text-center flex gap-4 flex-col">
+    <div className="items-center flex gap-2 flex-col">
         <h1 className="text-4xl p-1 text-white">Kies een reeks</h1>
-        <div className="flex space-x-4 justify-center">
+        <div className="flex gap-8 flex-row justify-center">
           <ClickableIcon
             name="getallenreeks"
             onClick={() => setSequenceType("getallenreeks")}

@@ -36,7 +36,7 @@ export const SequenceDisplay = <T,>({ sequence, handleOnComplete }: SequenceDisp
 
   return (
     <div className="flex mx-auto justify-center items-center w-64 h-64 p-4">
-      {itemDisplay &&<p className="text-8xl text-white">{JSON.stringify(itemDisplay)}</p>}
+      {itemDisplay &&<p className="text-8xl text-white">{itemDisplay as string | number}</p>}
     </div>
   );
 };
