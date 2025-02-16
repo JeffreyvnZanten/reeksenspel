@@ -14,7 +14,7 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
     if (sequenceType === "getallenreeks") {
       setSequence(generateNumberSequence(2, 3) as T[]);
     } else if (sequenceType === "letterreeks") {
-      setSequence(generateLetterSequence(2, 3) as T[]);
+      setSequence(generateLetterSequence(1, 3) as T[]);
     } else {
       alert("Kies een reeks");
       return;
