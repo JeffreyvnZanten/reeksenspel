@@ -1,57 +1,46 @@
+import { useState } from "react";
 import { generateLetterSequence, generateNumberSequence } from "../utils";
+import { ClickableIcon } from "./ClickableIcon";
+import { GameState } from "../App";
 
 export type AllowedSequenceItem = number | string | HTMLImageElement;
 
 export type SelectionMenuProps<T> = {
   setGameState: () => void;
-  sequence: T[];
   setSequence: React.Dispatch<React.SetStateAction<T[] | null>>;
 };
 
-export const SelectionMenu = <T,>({setGameState, sequence, setSequence}: SelectionMenuProps<T>) => {
-
-  function handleSequenceChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const value = event.target.value;
-    
-    switch (value) {
-      case "nummers":
-        setSequence(generateNumberSequence(2, 3) as T[]);
-        break;
-      case "letters":
-        setSequence(generateLetterSequence(4) as T[]);
-        break;
-      default:
-        break;
-    }
-  }
+export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProps<T>) => {
+  const [sequenceType, setSequenceType] = useState<string | null>(null);
 
   function handleStartGame() {
-    if(sequence !== null) setGameState();
-    else alert("Selecteer een reeks");
+    if (sequenceType === "getallenreeks") {
+      setSequence(generateNumberSequence(2, 3) as T[]);
+    } else if (sequenceType === "letterreeks") {
+      setSequence(generateLetterSequence(2) as T[]);
+    } else {
+      alert("Kies een reeks");
+      return;
+    }
+
+    setGameState();
   }
 
   return (
     <div className="text-center">
-        <h1 className="text-2xl">Selection Menu</h1>
-        <fieldset>
-          <legend>Type Reeksen</legend>
-          <input 
-            type="radio" 
-            id="nummers" 
-            name="reeksen" 
-            value="nummers" 
-            onChange={handleSequenceChange} 
+        <h1 className="text-4xl p-2">Kies een reeks</h1>
+        <div className="flex space-x-4 justify-center p-2">
+          <ClickableIcon
+            name="getallenreeks"
+            onClick={() => setSequenceType("getallenreeks")}
+            isSelected={sequenceType === "getallenreeks"}
           />
-          <label htmlFor ="nummers">Nummers</label>
-          <input 
-            type="radio" 
-            id="letters" 
-            name="reeksen" 
-            value="letters" 
-            onChange={handleSequenceChange} 
+          <ClickableIcon
+            name="letterreeks"
+            onClick={() => setSequenceType("letterreeks")}
+            isSelected={sequenceType === "letterreeks"}
           />
-          <label htmlFor ="letters">Letters</label>
-        </fieldset>
+        </div>
         <button 
             className="bg-red-500 hover:bg-red-700 text-xl text-white font-bold py-1 px-6 rounded-lg"
             onClick={() => handleStartGame()}

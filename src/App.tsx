@@ -20,7 +20,6 @@ export const App = <T,>() => {
     () => (
       <SelectionMenu
         setGameState={() => setGameState(GameState.SequenceDisplay)}
-        sequence={sequence as T[]}
         setSequence={setSequence}
       />
     ),
@@ -37,12 +36,12 @@ export const App = <T,>() => {
       />
     ),
     () => (
-      <ScoreDisplay />
+      <ScoreDisplay setGameState={() => setGameState(GameState.SelectionMenu)}/>
     )
   ];
 
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className="mx-auto w-sm border-1 p-10 bg-gray-100">
       {screens[gameState]()}
     </div>
   );

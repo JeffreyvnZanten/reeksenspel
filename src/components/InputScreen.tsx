@@ -31,8 +31,10 @@ export const InputScreen = <T,>({handleOnSubmit}: InputScreenProps<T>) => {
     return (
         <div>
             <h1>Voer de reeks in met een spatie tussen de items.</h1>
-            <input className="border-1" ref={inputRef} />
-            <button onClick={handleSubmit} >Submit</button>
+            <div className="">
+                <input className="border-1 w-16" ref={inputRef} />
+                <button className="bg-red-800 p-1 w-24 h-8 text-white" onClick={handleSubmit} >Submit</button>
+            </div>
         </div>
     );
 }

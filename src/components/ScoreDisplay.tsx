@@ -1,5 +1,13 @@
-export const ScoreDisplay = () => {
+import { useEffect } from "react";
+
+type ScoreDisplayProps = {
+  setGameState: () => void;
+}
+
+export const ScoreDisplay = ({setGameState} :ScoreDisplayProps) => {
   return (
-    <div>ScoreDisplay</div>
+    <div className="text-center">
+      <button className="bg-red-800 px-4 py-2 rounded-xl text-white" onClick={setGameState}>Ga terug</button>
+    </div>
   )
 }

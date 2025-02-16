@@ -18,7 +18,7 @@ export const SequenceDisplay = <T,>({ sequence, handleOnComplete }: SequenceDisp
       for (const item of sequence) {
         if (!isMounted) break;
         setItemDisplay(item);
-        await delay(1400);
+        await delay(1500);
       }
       if (isMounted) {
         handleOnComplete();
@@ -31,5 +31,10 @@ export const SequenceDisplay = <T,>({ sequence, handleOnComplete }: SequenceDisp
       isMounted = false;
     };
   }, [sequence, handleOnComplete]);
-  return <div className="text-4xl">{JSON.stringify(itemDisplay)}</div>
+
+  return (
+    <div className="flex mx-auto justify-center items-center w-64 h-64 p-4">
+      <p className="text-8xl">{JSON.stringify(itemDisplay)}</p>
+    </div>
+  );
 };
