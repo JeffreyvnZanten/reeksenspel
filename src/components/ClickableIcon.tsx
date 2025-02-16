@@ -1,5 +1,3 @@
-import React from 'react'
-
 type ClickableIconProps = {
     name: string;
     onClick: () => void;

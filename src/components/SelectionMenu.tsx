@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { generateLetterSequence, generateNumberSequence } from "../utils";
 import { ClickableIcon } from "./ClickableIcon";
-import { GameState } from "../App";
 
 export type AllowedSequenceItem = number | string | HTMLImageElement;
 
