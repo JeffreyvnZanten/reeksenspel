@@ -45,7 +45,7 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
         </div>
         {/* <GameSelector /> */}
         <button 
-            className="absolute bottom-4 sm:static bg-blue-900 hover:bg-slate-900 text-xl text-white font-bold py-2 px-32 rounded-lg"
+            className="absolute bottom-4 sm:static bg-blue-900 hover:bg-slate-900 text-xl text-white font-bold py-3 px-36 rounded-lg"
             onClick={() => handleStartGame()}
         >Start
         </button>
