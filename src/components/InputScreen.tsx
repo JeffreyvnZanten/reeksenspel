@@ -33,12 +33,13 @@ export const InputScreen = <T,>({handleOnSubmit, handleReset, setIsSuccess, sequ
     }
 
     return (
-        <div className="flex gap-4 flex-col">
-            <h1 className="text-white text-xl">Voer de reeks in met een komma tussen de items.</h1>
-            <div className="flex gap-2 flex-row">
-                <input className="border-1 w-28 bg-slate-200" ref={inputRef} />
-                <button className="bg-black px-4 py-1 h-8 text-white rounded-l" onClick={handleSubmit}>Voer in</button>
-                <button className="bg-black px-4 py-1 text-white rounded-l" onClick={handleReset}>Herhaal</button>
+        <div className="flex gap-4 flex-col justify-center items-center">
+            <div className="w-84 h-40 p-8 bg-blue-900 rounded-lg">
+                <h1 className="text-white text-2xl">Voer de reeks in met een komma tussen de items.</h1>
+            </div>
+            <div className="absolute bottom-0 sm:static flex p-3 gap-2 flex-row">
+                <input className="border-1 w-60 bg-slate-200" ref={inputRef} />
+                <button className="bg-black px-6 py-2 text-white text-xl rounded-md" onClick={handleSubmit}>Enter</button>
             </div>
         </div>
     );
