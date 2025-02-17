@@ -3,3 +3,10 @@
 html, body {
     background: #000;
 }
+
+@font-face {
+    font-family: 'NotoSans';
+    src: url('/fonts/NotoSans-VariableFont_wdth,wght.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+  }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { generateLetterSequence, generateNumberSequence } from "../utils";
 import { ClickableIcon } from "./ClickableIcon";
+// import { GameSelector } from "./GameSelector";
 
 export type SelectionMenuProps<T> = {
   setGameState: () => void;
@@ -25,7 +26,9 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
 
   return (
     <div className="items-center flex gap-2 flex-col">
-        <h1 className="text-4xl p-1 text-white">Kies een reeks</h1>
+        <div className="bg-[#9E92A4] w-full h-20 justify-center items-center flex">
+          <h1 className="text-4xl font-serif text-white p-1 text-center">Kies een breinspel</h1>
+        </div>
         <div className="flex gap-8 flex-row justify-center">
           <ClickableIcon
             name="getallenreeks"
@@ -33,11 +36,12 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
             isSelected={sequenceType === "getallenreeks"}
           />
           <ClickableIcon
-            name="letterreeks"
-            onClick={() => setSequenceType("letterreeks")}
-            isSelected={sequenceType === "letterreeks"}
+            name="playing-cards"
+            onClick={() => setSequenceType("playing-cards")}
+            isSelected={sequenceType === "playing-cards"}
           />
         </div>
+        {/* <GameSelector /> */}
         <button 
             className="bg-black border-2 hover:bg-slate-900 text-xl text-white font-bold py-2 px-8 rounded-lg"
             onClick={() => handleStartGame()}
