@@ -7,7 +7,7 @@ type InputScreenProps<T> = {
     setIsSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const InputScreen = <T,>({handleOnSubmit, handleReset, setIsSuccess, sequence}: InputScreenProps<T>) => {
+export const InputScreen = <T,>({handleOnSubmit, setIsSuccess, sequence}: InputScreenProps<T>) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
     function handleSubmit() {
