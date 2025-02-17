@@ -13,7 +13,7 @@ export const ClickableIcon = ({name, onClick, isSelected}: ClickableIconProps) =
         alt={name} 
         className={`size-34 sm:size-40 cursor-pointer p-1 ${isSelected ? 'border-3 border-dashed border-white' : ''}`}
       />
-      <p className="text-slate-100 text-xl md:text-xl">{name}</p>
+      {/* <p className="text-slate-100 text-xl md:text-xl">{name}</p> */}
     </div>
   )
 }

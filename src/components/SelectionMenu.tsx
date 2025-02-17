@@ -26,9 +26,9 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
 
   return (
     <div className="items-center justify-center flex flex-col">
-        <div className="bg-blue-900 w-full h-20 justify-center items-center flex">
+        <div className="bg-blue-900 w-full h-16 justify-center items-center flex">
           <h1 className="text-2xl sm:text-3xl font-serif text-slate-100 p-1 shadow-xl text-center">
-            Kies een spel
+            Kies een reeks
           </h1>
         </div>
         <div className="flex gap-6 sm:gap-16 py-6 md:py-10 flex-row">
