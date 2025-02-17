@@ -25,25 +25,27 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
   }
 
   return (
-    <div className="items-center flex gap-2 flex-col">
+    <div className="items-center justify-center flex flex-col">
         <div className="bg-blue-900 w-full h-20 justify-center items-center flex">
-          <h1 className="text-4xl font-serif text-white p-1 text-center">Kies een breinspel</h1>
+          <h1 className="text-2xl sm:text-3xl font-serif text-slate-100 p-1 shadow-xl text-center">
+            Kies een spel
+          </h1>
         </div>
-        <div className="flex gap-6 md:gap-16 py-6 md:py-10 flex-row justify-center">
+        <div className="flex gap-6 md:gap-16 py-6 md:py-10 flex-row">
           <ClickableIcon
             name="getallenreeks"
             onClick={() => setSequenceType("getallenreeks")}
             isSelected={sequenceType === "getallenreeks"}
           />
           <ClickableIcon
-            name="playing-cards"
-            onClick={() => setSequenceType("playing-cards")}
-            isSelected={sequenceType === "playing-cards"}
+            name="kaartenreeks"
+            onClick={() => setSequenceType("kaartenreeks")}
+            isSelected={sequenceType === "kaartenreeks"}
           />
         </div>
         {/* <GameSelector /> */}
         <button 
-            className="bg-black border-2 hover:bg-slate-900 text-xl text-white font-bold py-2 px-8 rounded-lg"
+            className="absolute bottom-20 sm:static bg-blue-900 hover:bg-slate-900 text-xl text-white font-bold py-2 px-32 rounded-lg"
             onClick={() => handleStartGame()}
         >Start
         </button>
