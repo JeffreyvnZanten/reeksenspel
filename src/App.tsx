@@ -44,8 +44,8 @@ export const App = <T,>() => {
   ];
 
   return (
-    <div className="mx-auto sm:w-m md:w-200 border-1 bg-[#F7D3B9] min-h-screen border-white">
-      <img className="w-full" src="./header2.jpeg" />
+    <div className="mx-auto sm:w-m md:w-140 border-1 bg-[#EB6E24] min-h-screen border-white">
+      <img className="w-full" src="./Rectangle 6.png" />
       {screens[gameState]()}
     </div>
   );

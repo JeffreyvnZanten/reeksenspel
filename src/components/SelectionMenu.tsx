@@ -26,10 +26,10 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
 
   return (
     <div className="items-center flex gap-2 flex-col">
-        <div className="bg-[#9E92A4] w-full h-20 justify-center items-center flex">
+        <div className="bg-blue-900 w-full h-20 justify-center items-center flex">
           <h1 className="text-4xl font-serif text-white p-1 text-center">Kies een breinspel</h1>
         </div>
-        <div className="flex gap-8 flex-row justify-center">
+        <div className="flex gap-6 md:gap-16 py-6 md:py-10 flex-row justify-center">
           <ClickableIcon
             name="getallenreeks"
             onClick={() => setSequenceType("getallenreeks")}
