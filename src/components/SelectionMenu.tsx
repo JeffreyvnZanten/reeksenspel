@@ -31,7 +31,7 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
             Kies een spel
           </h1>
         </div>
-        <div className="flex gap-6 md:gap-16 py-6 md:py-10 flex-row">
+        <div className="flex gap-6 sm:gap-16 py-6 md:py-10 flex-row">
           <ClickableIcon
             name="getallenreeks"
             onClick={() => setSequenceType("getallenreeks")}
@@ -45,7 +45,7 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
         </div>
         {/* <GameSelector /> */}
         <button 
-            className="absolute bottom-20 sm:static bg-blue-900 hover:bg-slate-900 text-xl text-white font-bold py-2 px-32 rounded-lg"
+            className="absolute bottom-4 sm:static bg-blue-900 hover:bg-slate-900 text-xl text-white font-bold py-2 px-32 rounded-lg"
             onClick={() => handleStartGame()}
         >Start
         </button>
