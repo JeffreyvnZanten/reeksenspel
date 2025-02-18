@@ -25,13 +25,13 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
   }
 
   return (
-    <div className="items-center justify-center flex flex-col">
-        <div className="bg-blue-900 w-full h-16 justify-center items-center flex">
-          <h1 className="text-2xl sm:text-3xl font-serif text-slate-100 p-1 shadow-xl text-center">
+    <div className="flex flex-col relative min-h-screen">
+        <header className="bg-blue-900 py-2 text-center">
+          <h1 className="text-2xl sm:text-3xl font-serif text-slate-100 shadow-xl">
             Kies een reeks
           </h1>
-        </div>
-        <div className="flex gap-6 sm:gap-16 py-6 md:py-10 flex-row">
+        </header>
+        <div className="flex w-full justify-evenly py-8 flex-row">
           <ClickableIcon
             name="getallenreeks"
             onClick={() => setSequenceType("getallenreeks")}
@@ -45,7 +45,7 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
         </div>
         {/* <GameSelector /> */}
         <button 
-            className="absolute bottom-4 sm:static bg-blue-900 hover:bg-slate-900 text-xl text-white font-bold py-3 px-36 rounded-lg"
+            className="fixed bottom-4 left-1/2 -translate-x-1/2 md:mx-auto md:static md:translate-x-0 bg-blue-900 cursor-pointer hover:bg-slate-900 mx-auto text-xl text-white font-bold py-3 px-36 rounded-lg"
             onClick={() => handleStartGame()}
         >Start
         </button>

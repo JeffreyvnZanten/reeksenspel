@@ -11,7 +11,7 @@ export const ClickableIcon = ({name, onClick, isSelected}: ClickableIconProps) =
         onClick={onClick} 
         src={`./${name}.png`} 
         alt={name} 
-        className={`size-34 sm:size-40 cursor-pointer p-1 ${isSelected ? 'border-3 border-dashed border-white' : ''}`}
+        className={`w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 cursor-pointer p-1 ${isSelected ? 'border-3 border-dashed border-white' : ''}`}
       />
       {/* <p className="text-slate-100 text-xl md:text-xl">{name}</p> */}
     </div>
