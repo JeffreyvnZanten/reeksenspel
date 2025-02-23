@@ -5,7 +5,7 @@ type SequenceDisplayProps<T> = {
   handleOnComplete: () => void;
 };
 
-export const SequenceDisplay = <T,>({ sequence, handleOnComplete }: SequenceDisplayProps<T>) => {
+export const NumberSequenceDisplay = <T,>({ sequence, handleOnComplete }: SequenceDisplayProps<T>) => {
   const [itemDisplay, setItemDisplay] = useState<T | null>(null);
 
   const delay = (ms: number) =>
@@ -34,9 +34,10 @@ export const SequenceDisplay = <T,>({ sequence, handleOnComplete }: SequenceDisp
     };
   }, [sequence, handleOnComplete]);
 
+  console.log("NumberSequenceDisplay");
   return (
-    <div className="flex mx-auto justify-center items-center w-64 h-64 p-4">
-      {itemDisplay &&<p className="text-8xl text-white">{itemDisplay as string | number}</p>}
+    <div className="flex flex-col mx-auto justify-center items-center">
+      {itemDisplay &&<p className="titanone-text text-8xl text-white py-40 px-4">{itemDisplay as string | number}</p>}
     </div>
   );
 };

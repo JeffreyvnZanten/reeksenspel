@@ -7,8 +7,8 @@ module.exports = {
     theme: {
       extend: {
         fontFamily: {
-          'nunito': ['Nunito Sans', 'sans-serif'],
-          'notosans': ['Noto Sans', 'sans-serif'],
+          notosans: ['NotoSans', 'sans-serif'],
+          titanone: ['TitanOne', 'sans-serif'],
         },
       },
     },

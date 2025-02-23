@@ -1,14 +1,17 @@
 import { useState } from 'react';
-import { SequenceDisplay } from './components/SequenceDisplay';
+import { NumberSequenceDisplay } from './components/NumberSequenceDisplay';
 import { SelectionMenu } from './components/SelectionMenu';
-import { InputScreen } from './components/InputScreen';
+import { NumberInputScreen } from './components/InputScreen';
 import './App.css';
 import { ScoreDisplay } from './components/ScoreDisplay';
+import { CardSelectionScreen } from './components/CardSelectionScreen';
 
 export enum GameState {
   SelectionMenu,
-  SequenceDisplay,
-  InputScreen,
+  NumberSequenceDisplay,
+  NumberInputScreen,
+  CardSequenceDisplay,
+  CardSelectionScreen,
   ScoreDisplay
 }
 
@@ -17,36 +20,38 @@ export const App = <T,>() => {
   const [sequence, setSequence] = useState<T[] | null>(null);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
-  const screens = [
-    () => (
+  const screens = {
+    [GameState.SelectionMenu]: (
       <SelectionMenu
-        setGameState={() => setGameState(GameState.SequenceDisplay)}
+        setGameState={() => setGameState(GameState.NumberSequenceDisplay)}
         setSequence={setSequence}
       />
     ),
-    () => (
-      <SequenceDisplay
+    [GameState.NumberSequenceDisplay]: (
+      <NumberSequenceDisplay
         sequence={sequence as T[]}
-        handleOnComplete={() => setGameState(GameState.InputScreen)}
+        handleOnComplete={() => setGameState(GameState.NumberInputScreen)}
       />
     ),
-    () => (
-      <InputScreen 
+    [GameState.NumberInputScreen]: (
+      <NumberInputScreen 
         handleOnSubmit={() => setGameState(GameState.ScoreDisplay)} 
-        handleReset={() => setGameState(GameState.SequenceDisplay)}
+        handleReset={() => setGameState(GameState.NumberSequenceDisplay)}
         setIsSuccess={setIsSuccess}
         sequence={sequence as T[]}
       />
     ),
-    () => (
+    [GameState.CardSequenceDisplay]: (
+      <></>
+    ),
+    [GameState.CardSelectionScreen]: (
+      <CardSelectionScreen />
+    ),
+    [GameState.ScoreDisplay]: (
       <ScoreDisplay isSuccess={isSuccess} setGameState={() => setGameState(GameState.SelectionMenu)}/>
     )
-  ];
+  };
 
-  return (
-    <div className="mx-auto w-full max-w-sm min-h-screen sm:max-w-2xl bg-[#EB6E24]">
-      <img className="w-full object-contain" src="./Rectangle 6.png" />
-      {screens[gameState]()}
-    </div>
-  );  
+  console.log("App");
+  return (screens[gameState]);  
 };

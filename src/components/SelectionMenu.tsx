@@ -24,14 +24,16 @@ export const SelectionMenu = <T,>({setGameState, setSequence}: SelectionMenuProp
     setGameState();
   }
 
+  console.log("SelectionMenu");
   return (
     <div className="flex flex-col relative min-h-screen">
+        <img className="w-full object-contain" src="./images/Rectangle 6.png" />
         <header className="bg-blue-900 py-2 text-center">
           <h1 className="text-2xl sm:text-3xl font-serif text-slate-100 shadow-xl">
             Kies een reeks
           </h1>
         </header>
-        <div className="flex w-full justify-evenly py-8 flex-row">
+        <div className="flex w-full justify-evenly py-7 md:py-16 flex-row">
           <ClickableIcon
             name="getallenreeks"
             onClick={() => setSequenceType("getallenreeks")}
